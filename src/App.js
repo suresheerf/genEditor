@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Code from './code';
+import { useState } from 'react';
 function App() {
+  const [language,setLanguage] = useState('');
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <h4>Code Highlight</h4>
       </header>
+      <select onChange={(e)=> {
+        console.log(e)
+        setLanguage(e.target.value)}}>
+        <option value='json'>JSON</option>
+        <option value='sql'>sql</option>
+
+      </select>
+     <Code code = '{"name":"suresh","age":29,"gender":"male"}' language={language}></Code>
+     {/* <Code code = 'select * from users' language={language}></Code> */}
+
     </div>
   );
 }

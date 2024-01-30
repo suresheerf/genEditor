@@ -4,6 +4,7 @@ import Code from './code';
 import { useState } from 'react';
 function App() {
   const [language,setLanguage] = useState('');
+  const [code,setCode] = useState('');
   return (
     <div className="App">
       <header className="App-header">
@@ -16,7 +17,7 @@ function App() {
         <option value='sql'>sql</option>
 
       </select>
-     <Code code = '{"name":"suresh","age":29,"gender":"male"}' language={language}></Code>
+     <Code code={code} setCode= {setCode} language={language}></Code>
      {/* <Code code = 'select * from users' language={language}></Code> */}
 
     </div>
